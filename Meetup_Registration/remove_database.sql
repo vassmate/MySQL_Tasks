@@ -1,0 +1,1 @@
+DROP DATABASE meetup_registration_database;

@@ -1,5 +1,11 @@
 SELECT * FROM users WHERE Introduction IS NOT NULL;
+
 SELECT * FROM meetups WHERE Start > '2015.11.27';
-SELECT users.*, meetups.Start, meetups.Location, meetups.Topic, meetups.Description, statuses.Value 
-FROM users JOIN meetups ON meetups.id = users.id
-JOIN statuses ON statuses.id = users.id WHERE users.id = 1;
+
+SELECT meetup_registrations.id, users.Name, users.Birthdate, users.Introduction, users.Avatar, users.Email,
+statuses.Value, meetups.Start, meetups.Location, meetups.Topic, meetups.Description
+FROM meetup_registrations
+JOIN users ON meetup_registrations.UserId = users.id
+JOIN statuses ON meetup_registrations.StatusId = statuses.id
+JOIN meetups ON meetup_registrations.MeetupId = meetups.id
+WHERE users.id = 2;

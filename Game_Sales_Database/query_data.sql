@@ -1,19 +1,18 @@
-SELECT Games.*, category.Main_category, category.Genre, shops.Shop_Name, shops.Price, shops.On_Sale
-FROM Games
-JOIN category ON category.id = Games.id
-JOIN shops ON shops.id = Games.id;
+SELECT Sales.id, Games.Title, Games.Release_Date, Games.Metascore,
+Categories.Genre, Shops.Shop_Name, Prices.Price, Prices.On_Sale
+FROM Sales
+JOIN Shops ON Sales.ShopId = Shops.id
+JOIN Games ON Sales.GameId = Games.id
+JOIN Categories ON Sales.CategoryId = Categories.id
+JOIN Prices ON Prices.id = Sales.id
+ORDER BY Sales.id;
 
-SELECT Games.*, category.Main_category, category.Genre, shops.Shop_Name, shops.Price, shops.On_Sale
-FROM Games
-JOIN category ON category.id = Games.id
-JOIN shops ON shops.id = Games.id WHERE On_Sale > 0;
-
-SELECT Games.*, category.Main_category, category.Genre, shops.Shop_Name, shops.Price, shops.On_Sale
-FROM Games
-JOIN category ON category.id = Games.id
-JOIN shops ON shops.id = Games.id WHERE Release_Date > '2015.04.21';
-
-SELECT Games.*, category.Main_category, category.Genre, shops.Shop_Name, shops.Price, shops.On_Sale
-FROM Games
-JOIN category ON category.id = Games.id
-JOIN shops ON shops.id = Games.id WHERE Shop_Name = 'CD Galaxis';
+SELECT Sales.id, Games.Title, Games.Release_Date, Games.Metascore,
+Categories.Genre, Shops.Shop_Name, Prices.Price, Prices.On_Sale
+FROM Sales
+JOIN Shops ON Sales.ShopId = Shops.id
+JOIN Games ON Sales.GameId = Games.id
+JOIN Categories ON Sales.CategoryId = Categories.id
+JOIN Prices ON Prices.id = Sales.id
+WHERE Prices.On_Sale > 0
+ORDER BY Sales.id;

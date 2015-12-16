@@ -23,9 +23,14 @@ def execute_sql_commands(file):
 
 def list_data(file):
 	my_cursor.execute("USE meetup_registration_database")
+
 	for command in make_sql_commands_list(file):
 		if len(command) > 0 and command != " ":
 			my_cursor.execute(command)
+			print("\n")
+			print("-" * 13)
+			print("Result Table:")
+			print("-" * 13)
 			for row in my_cursor.fetchall():
 				print(row)
 

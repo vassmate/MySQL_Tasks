@@ -34,7 +34,7 @@ INSERT INTO statuses
 VALUES(5, 'Tentative');
 
 INSERT INTO meetup_registrations(StatusId, MeetupId, UserId)
-VALUES(2, 1, 2);
+VALUES(1, 1, 2);
 INSERT INTO meetup_registrations(StatusId, MeetupId, UserId)
 VALUES(2, 2, 2);
 INSERT INTO meetup_registrations(StatusId, MeetupId, UserId)

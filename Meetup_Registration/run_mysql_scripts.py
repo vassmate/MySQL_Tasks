@@ -1,6 +1,6 @@
 import mysql.connector
 
-connector = mysql.connector.connect(user='root', password='', host='localhost')
+connector = mysql.connector.connect(user='root', password='vassmate1991', host='localhost')
 my_cursor = connector.cursor()
 
 
@@ -16,12 +16,15 @@ def make_sql_commands_list(sql_file):
 
 
 def execute_sql_commands(file):
+
 	for command in make_sql_commands_list(file):
+
 		if len(command) > 0 and command != " ":
 			my_cursor.execute(command)
 
 
 def list_data(file):
+
 	my_cursor.execute("USE meetup_registration_database")
 
 	for command in make_sql_commands_list(file):

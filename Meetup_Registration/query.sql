@@ -1,3 +1,4 @@
+USE Meetup_Registration_Database;
 SELECT * FROM users WHERE Introduction IS NOT NULL;
 
 SELECT * FROM meetups WHERE Start > '2015.11.27';
